@@ -1,7 +1,8 @@
 const BadInput=function()
 {
-    const rem=document.getElementsByClassName("hide");
+    const rem=document.getElementsByClassName("hidewrong");
     rem[0].classList.remove('hide');
+    
 }
 const reverseBadInput=function()
 {
@@ -12,6 +13,7 @@ const calculate =function (e)
 {
     e.preventDefault();
     const bill=billE.value;
+    
     const casH=cash.value;
     if(casH===""||bill==="")
     BadInput();
@@ -19,8 +21,6 @@ const calculate =function (e)
     {
         const billN=+bill;
         const casHN=+casH;
-    console.log(billN);
-    console.log(casHN);
     if(casHN<billN)
     BadInput();
     else
@@ -53,9 +53,32 @@ const calculate =function (e)
 
     
 }
+const calculatecash=function(e)
+{
+    e.preventDefault(); 
+    
+    const bill=billE.value;
+    if(bill==="")
+    {
+        BadInput();
+        console.log(1);
+       
+    }
+    else
+    {
+        cashin[0].classList.remove('hide');
+       nxtbut[0].classList.add('hide');
+    }
+    
+}
+
 const butn=document.getElementById("Click");
+const nxt=document.getElementById("Next");
 const billE = document.getElementById("cash");
 const cash=document.getElementById("bil");
+const cashin=document.getElementsByClassName("hidediv");
+const nxtbut=document.getElementsByClassName("nextbut");
+nxt.addEventListener("click",calculatecash);
 
 butn.addEventListener("click",calculate);
 
